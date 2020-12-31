@@ -35,7 +35,7 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    if(this.id===-1) {
+    if(this.id == -1) {
       //create todo
       this.todoService.createTodo('in28minutes',this.todo).subscribe(
         data => {

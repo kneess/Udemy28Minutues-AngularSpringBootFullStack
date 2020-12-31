@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators'
-import { API_URL } from '../app.constants';
+import { TODO_JPA_API_URL } from '../app.constants';
 
 export const TOKEN = 'authenticationToken';
 export const AUTHENTICATED_USER = 'authenticatedUser';
@@ -18,7 +18,7 @@ export class BasicAuthenticationService {
   executeJWTAuthenticationService(username, password) {
     
     return this.http.post<any>(
-      `${API_URL}/authenticate`, {
+      `${TODO_JPA_API_URL}/authenticate`, {
         username,
         password
       }).pipe(
@@ -41,7 +41,7 @@ export class BasicAuthenticationService {
     })
 
     return this.http.get<AuthenticationBean>(
-      `${API_URL}/basicauth`,
+      `${TODO_JPA_API_URL}/basicauth`,
       {headers}).pipe(
         map(
           data => {
